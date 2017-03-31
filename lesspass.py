@@ -1,6 +1,8 @@
 """lesspass implementation in Python"""
 
 import hashlib
+import binascii
+from pprint import pprint
 
 CHARACTER_SUBSETS = {
     'lowercase': 'abcdefghijklmnopqrstuvwxyz',
@@ -37,13 +39,13 @@ def generate_password(site, login, master_password, password_profile=None):
 def calc_entropy(site, login, master_password, password_profile):
     """calc_entropy function"""
     salt = site + login + hex(password_profile['counter'])[2:]
-    return hashlib.pbkdf2_hmac(
+    return binascii.hexlify(hashlib.pbkdf2_hmac(
         password_profile['digest'],
-        master_password,
-        salt,
+        master_password.encode('utf-8'),
+        salt.encode('utf-8'),
         password_profile['iterations'],
         password_profile['keylen']
-    ).encode('hex')
+    ))
 
 def get_set_of_characters(rules=None):
     """get_set_of_characters function"""
@@ -98,7 +100,7 @@ def render_password(entropy, password_profile):
     set_of_characters = get_set_of_characters(rules)
     password, password_entropy = consume_entropy(
         '',
-        long(entropy, 16),
+        int(entropy, 16),
         set_of_characters,
         password_profile['length'] - len(rules)
     )

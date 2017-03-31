@@ -39,7 +39,7 @@ class RenderPasswordTests(unittest.TestCase):
 
     def test_one_of_each_set_of_chars(self):
         """test_one_of_each_set_of_chars function"""
-        password = insert_string_pseudo_randomly('123456', long(7 * 6 + 2), 'uT')
+        password = insert_string_pseudo_randomly('123456', int(7 * 6 + 2), 'uT')
         self.assertEqual('T12u3456', password)
 
 

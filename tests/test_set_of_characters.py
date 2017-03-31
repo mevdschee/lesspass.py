@@ -54,7 +54,7 @@ class SetOfCharactersTests(unittest.TestCase):
 
     def test_one_char_per_rule(self):
         """test_one_char_per_rule function"""
-        value, entropy = get_one_char_per_rule(long(26 * 26), ['lowercase', 'uppercase'])
+        value, entropy = get_one_char_per_rule(int(26 * 26), ['lowercase', 'uppercase'])
         self.assertEqual('aA', value)
         self.assertEqual(2, len(value))
         self.assertEqual(1, entropy)

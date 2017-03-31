@@ -90,7 +90,7 @@ def get_one_char_per_rule(entropy, rules):
 def get_configured_rules(password_profile):
     """get_configured_rules function"""
     rules = ['lowercase', 'uppercase', 'numbers', 'symbols']
-    return [rule for rule in rules if password_profile[rule]]
+    return [rule for rule in rules if rule in password_profile and password_profile[rule]]
 
 def render_password(entropy, password_profile):
     """render_password function"""

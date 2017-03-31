@@ -24,7 +24,8 @@ def get_password_profile(password_profile):
         'version': 2
     }
     result = default_password_profile.copy()
-    result.update(password_profile)
+    if password_profile != None:
+        result.update(password_profile)
     return result
 
 def generate_password(site, login, master_password, password_profile=None):
@@ -46,7 +47,7 @@ def calc_entropy(site, login, master_password, password_profile):
 
 def get_set_of_characters(rules=None):
     """get_set_of_characters function"""
-    if rules != None:
+    if rules is None:
         return (
             CHARACTER_SUBSETS['lowercase'] +
             CHARACTER_SUBSETS['uppercase'] +

@@ -2,7 +2,6 @@
 
 import hashlib
 import binascii
-from pprint import pprint
 
 CHARACTER_SUBSETS = {
     'lowercase': 'abcdefghijklmnopqrstuvwxyz',

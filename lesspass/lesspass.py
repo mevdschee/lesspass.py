@@ -29,7 +29,7 @@ def _get_password_profile(password_profile):
     return result
 
 def generate_password(site, login, master_password, password_profile=None):
-    """generate_password function"""
+    """generate_password generates a v2 lesspass password"""
     password_profile = _get_password_profile(password_profile)
     entropy = _calc_entropy(site, login, master_password, password_profile)
     return _render_password(entropy, password_profile)

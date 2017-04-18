@@ -9,3 +9,8 @@ A lesspass implementation in Python
 ## Tests
 
     python -m py.test
+
+## See also
+
+- [lesspass.go](https://github.com/mevdschee/lesspass.go)
+- [lesspass.php](https://github.com/mevdschee/lesspass.php)

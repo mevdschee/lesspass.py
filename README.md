@@ -32,6 +32,15 @@ Third way:
 
 Default profile is used.
 
+### CLI Installation
+
+The simplest way to install CLI is to make symlink in one of directories from
+system `$PATH` variable. In my case it looked like this:
+
+`ln -s ~kacper/data/bin/lesspass $(realpath ./cli.py)`
+
+(`~kacper/data/bin/` is in my `$PATH` variable)
+
 ## Tests
 
     python -m py.test
